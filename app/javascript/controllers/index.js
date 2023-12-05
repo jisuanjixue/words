@@ -2,7 +2,42 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { Application } from "@hotwired/stimulus";
+import { IntersectionController } from 'stimulus-use';
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+// General Controllers
+// -------------------
+// import all Stimulus controller files under the controllers folder
+import controllers from './**/*_controller.js'
+
+// Auxiliary Methods
+// -----------------
+// Infer Stimulus controller name from its file
+function controllerName(defaultName) {
+    const namespaces = [
+        ...new Set(
+            defaultName
+                .split('--')
+                .filter((ns) => !['..', 'controllers'].includes(ns))
+        )
+    ]
+    return namespaces.join('--')
+}
+
+const application = Application.start()
+
+// Configure Stimulus development experience
+application.debug = false
+window.Stimulus = application
+
+
+controllers.forEach((controller) => {
+    Stimulus.register(controllerName(controller.name), controller.module.default)
+})
+
+application.register('intersection', IntersectionController);
+
+document.documentElement.setAttribute(
+    'data-theme',
+    window.localStorage.getItem('theme'),
+);  
