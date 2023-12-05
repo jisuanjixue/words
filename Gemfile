@@ -77,3 +77,5 @@ end
 
 gem "sidekiq", "~> 7.1"
 
+
+gem "devise", "~> 4.9"
