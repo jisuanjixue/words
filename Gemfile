@@ -80,3 +80,5 @@ gem "sidekiq", "~> 7.1"
 
 
 gem "devise", "~> 4.9"
+
+gem "pagy", "~> 6.2"
