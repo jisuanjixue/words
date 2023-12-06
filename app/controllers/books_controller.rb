@@ -29,8 +29,8 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:name, :editable, :cover_url).tap do |whitelisted|
-      whitelisted[:books_count] = params[:books_count] || 0
+    params.require(:book).permit(:name, :editable, :cover_url, :books_count).tap do |whitelisted|
+      whitelisted[:words_count] = params[:words_count] || 0
     end
   end
 

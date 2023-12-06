@@ -11,6 +11,16 @@
     <%= yield :head %>
   </head>
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/navbar' %>
+      <div id="flash" class="fixed top-20 left-[50%] translate-x-2/4 flex flex-col items-center gap-2 max-w-full py-0 px-4">
+        <%= render 'layouts/flash' %>
+      </div>
+    </header>
+    <main>
+      <blockquote class="text-xl italic font-semibold text-left text-gray-900 dark:text-white p-4 mt-28">
+        <%= yield %>
+      </blockquote>
+    </main>
   </body>
 </html>
