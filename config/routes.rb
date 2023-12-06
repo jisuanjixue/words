@@ -2,7 +2,7 @@
 #
 
 Rails.application.routes.draw do
-  get 'books/index'
+  resources :books
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
