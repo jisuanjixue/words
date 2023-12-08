@@ -1,6 +1,7 @@
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<%= turbo_frame_tag book do %>
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" id="<%=dom_id(book) %>" >
   <%= link_to book_path(book), class: "h-32 mb-1 relative hover:opacity-90 transition-opacity" do %>
-    <div id="<%=dom_id(book) %>" class=" bg-gray-200">
+    <div class=" bg-gray-200">
       <%- if book.cover_url.present? %>
         <%= image_tag book.cover_url, class: "h-full w-full object-cover" %>
       <%- end -%>
@@ -8,10 +9,16 @@
     <div class="p-5">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= book.name %></h5>
       <div class="flex mt-4 space-x-3 md:mt-6">
-        <div class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          <%= book.words_count %>
-        </div>
       </div>
     </div>
   <% end %>
+  <div class="flex items-center space-x-4">
+      <button type="button" class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+        <%= link_to '编辑', edit_book_path(book) %>
+      </button>
+      <%= button_to "删除", book, method: :delete, data: { confirm: "你确定要删除吗？" }, class:"text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" %>
+  </div>
 </div>
+<% end %>
+
+

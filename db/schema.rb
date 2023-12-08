@@ -45,7 +45,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_06_062730) do
   create_table "books", force: :cascade do |t|
     t.string "name", null: false
     t.string "cover_url"
-    t.integer "words_count", default: 0
     t.boolean "editable", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

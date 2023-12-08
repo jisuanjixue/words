@@ -1,16 +1,15 @@
 # == Schema Information
-# Schema version: 20231206030451
+# Schema version: 20231206062730
 #
 # Table name: books
 #
-#  id          :bigint           not null, primary key
-#  cover_url   :string
-#  editable    :boolean          default(FALSE)
-#  name        :string           not null
-#  words_count :integer          default(0)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :bigint           not null
+#  id         :bigint           not null, primary key
+#  cover_url  :string
+#  editable   :boolean          default(FALSE)
+#  name       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
