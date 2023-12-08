@@ -10,7 +10,10 @@ class BooksController < ApplicationController
   end
 
   def show
-
+    @word_all = @book.words.includes(:book).order(created_at: :desc)
+    @pagy, @words = pagy(@word_all)
+    rescue Pagy::OverflowError
+    redirect_to book_path(@book, page: 1)
   end
 
   def new
@@ -23,13 +26,19 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.create! book_params
-    redirect_to books_url, notice: "Book was successfully created."
+    if @book
+      respond_to do |format|
+        format.html { redirect_to books_url, notice: "Book was successfully created." }
+      end
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def update
-    if  @book.update(book_params)
+    if  @book.update! book_params
       respond_to do |format|
-        format.html { redirect_to books_url, notice: "Book was successfully update." }
+        format.html { redirect_to books_url, notice: "Book was successfully updated." }
       end
     else
       render :edit, status: :unprocessable_entity
@@ -47,7 +56,7 @@ class BooksController < ApplicationController
   private
 
   def set_book
-    @book = current_user.books.find(params[:id])
+    @book = current_user.books.friendly.find(params[:id])
   end
 
   def book_params

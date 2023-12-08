@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20231206062730
+# Schema version: 20231208084152
 #
 # Table name: books
 #
@@ -7,12 +7,14 @@
 #  cover_url  :string
 #  editable   :boolean          default(FALSE)
 #  name       :string           not null
+#  slug       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
 #
 # Indexes
 #
+#  index_books_on_slug     (slug) UNIQUE
 #  index_books_on_user_id  (user_id)
 #
 # Foreign Keys
