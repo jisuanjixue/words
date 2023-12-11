@@ -35,20 +35,24 @@ class WordsController < ApplicationController
   end
 
   def destroy
+    if @word
     @word.destroy!
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.remove(@word) }
         format.html { redirect_to book_path(@book), notice: 'word was delete..' }
     end
+    else
+      redirect_to book_path(@book), alert: 'Word not found.'
+    end
   end
 
   private
   def set_book
-    @book = current_user.books.find(params[:book_id])
+    @book = current_user.books.friendly.find(params[:book_id])
   end
 
   def set_word
-    @word = @book.words.find(params[:id])
+    @word = @book.words.friendly.find_by(slug: params[:id])
   end
 
   def word_params

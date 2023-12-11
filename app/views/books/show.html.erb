@@ -1,16 +1,15 @@
 <%= turbo_stream_from @book %>
 <%= render 'books/header', book: @book %>
 <%= link_to root_path, class: "opacity-90 hover:opacity-100" do %>
-  <span class="text-red-500 font-bold">单词本</span>
+  <span class="font-bold text-red-500">单词本</span>
   <hr class="my-4">
 <% end %>
-<div class="py-4 flex justify-items-start">
+<div class="flex py-4 justify-items-start">
   <div class="flex flex-col justify-center">
     <div class="flex flex-row items-center">
       <h2 class="text-header-3"><%= @book.name %></h2>
     </div>
   </div>
 </div>
-
-<%= render "books/add_word_button", book: @book %>
+<%= render "words/add_word_button", book: @book %>
 <%= render "books/words", book: @book, words: @words %>

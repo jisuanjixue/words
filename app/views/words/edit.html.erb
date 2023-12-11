@@ -1,2 +1,3 @@
-<h1>Words#edit</h1>
-<p>Find me in app/views/words/edit.html.erb</p>
+<%= turbo_frame_tag "modal" do %>
+  <%= render 'words/word_form', book: @book, word: @word %>
+<% end %>
