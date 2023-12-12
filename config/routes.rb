@@ -3,7 +3,10 @@
 
 Rails.application.routes.draw do
   resources :books do
-    resources :words
+    resources :words do
+      patch 'mastered', on: :member      
+      patch 'unmastered', on: :member
+    end
   end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

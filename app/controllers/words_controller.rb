@@ -1,6 +1,6 @@
 class WordsController < ApplicationController
   before_action :set_book
-  before_action :set_word, only: %i[show edit update destroy]
+  before_action :set_word, only: %i[show edit update destroy unmastered mastered]
 
 
   def show
@@ -45,6 +45,16 @@ class WordsController < ApplicationController
     else
       redirect_to book_path(@book), alert: 'Word not found.'
     end
+  end
+
+  def mastered
+    @word.update!(status: 1)
+    redirect_to book_path(@book), notice: '单词标记已掌握'
+  end
+
+  def unmastered
+    @word.update!(status: 0)
+    redirect_to book_path(@book), notice: '单词标记未掌握.'
   end
 
   private
