@@ -1,0 +1,4 @@
+<%= turbo_stream.update nested_dom_id(@book, Word.new), "" %>
+<%= turbo_stream.append nested_dom_id(@book, "words") do %>
+  <%= render "words/words", book: @book, words: @book.words %>
+<% end %>

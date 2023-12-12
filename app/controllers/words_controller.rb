@@ -28,6 +28,7 @@ class WordsController < ApplicationController
     if @word.update! word_params
       respond_to do |format|
         format.html { redirect_to book_path(@book), notice: "Word was successfully updated."  }
+        format.turbo_stream
       end
     else
       render :edit, status: :unprocessable_entity

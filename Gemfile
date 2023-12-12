@@ -84,3 +84,6 @@ gem "devise", "~> 4.9"
 gem "pagy", "~> 6.2"
 
 gem "friendly_id", "~> 5.5"
+
+
+gem "view_component", "~> 3.8"

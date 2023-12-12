@@ -24,10 +24,10 @@
 class Book < ApplicationRecord
   extend FriendlyId
   has_many :words, dependent: :destroy, inverse_of: :book
-  broadcasts_refreshes
   belongs_to :user, counter_cache: false
-  
   has_one_attached :cover_url
+
+  broadcasts_refreshes_to :user
 
   validates :name, presence: true
   normalizes :name, with: -> { _1.squish }

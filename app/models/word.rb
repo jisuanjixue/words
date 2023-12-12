@@ -24,10 +24,12 @@
 #
 class Word < ApplicationRecord
   extend FriendlyId
-  belongs_to :book, counter_cache: false
-
+  belongs_to :book, touch: true, counter_cache: false
+  has_one :user, through: :book
   has_rich_text :definition
   has_rich_text :example_sentence
+
+  broadcasts_refreshes_to :user
 
   enum status: {  unmastered: 0, mastered: 1 }
 

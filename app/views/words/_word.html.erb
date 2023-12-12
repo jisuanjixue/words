@@ -1,4 +1,4 @@
-<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" id="<%= nested_dom_id(book, word)  %>">
   <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
     <%= word.name %>
   </th>
@@ -11,7 +11,7 @@
   </th>
   <td class="px-6 py-4">
     <div class="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-      <%= link_to "编辑", [:edit, book, word], data: {  modal_target: "edit-modal", modal_toggle:"edit-modal" }, type: "button",  class:"px-3 py-2 mb-2 text-sm font-medium text-center text-blue-700 border border-blue-700 rounded-lg hover:text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 me-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
+      <%= link_to "编辑", edit_book_word_path(book, word), data: { turbo_frame: 'modal' },  class:"px-3 py-2 mb-2 text-sm font-medium text-center text-blue-700 border border-blue-700 rounded-lg hover:text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 me-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
       <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="px-3 py-2 mb-2 text-sm font-medium text-center text-red-700 border border-red-700 rounded-lg hover:text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 me-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" type="button">
         删除
       </button>

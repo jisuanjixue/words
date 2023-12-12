@@ -20,6 +20,8 @@
 #
 class User < ApplicationRecord
   has_many :books, dependent: :destroy
+  has_many :words, through: :books
+  broadcasts_refreshes
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

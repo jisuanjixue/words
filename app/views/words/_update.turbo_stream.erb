@@ -1,0 +1,3 @@
+<%= turbo_stream.replace nested_dom_id(book, word) do %>
+  <%= render "words/word", book: book, word: word %>
+<% end %>
