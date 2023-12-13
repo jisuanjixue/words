@@ -1,16 +1,17 @@
 # == Schema Information
-# Schema version: 20231208084152
+# Schema version: 20231213094225
 #
 # Table name: books
 #
-#  id         :bigint           not null, primary key
-#  cover_url  :string
-#  editable   :boolean          default(FALSE)
-#  name       :string           not null
-#  slug       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  id          :bigint           not null, primary key
+#  cover_url   :string
+#  editable    :boolean          default(FALSE)
+#  name        :string           not null
+#  slug        :string
+#  words_count :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :bigint           not null
 #
 # Indexes
 #
@@ -24,7 +25,7 @@
 class Book < ApplicationRecord
   extend FriendlyId
   has_many :words, dependent: :destroy, inverse_of: :book
-  belongs_to :user, counter_cache: false
+  belongs_to :user, counter_cache: true
   has_one_attached :cover_url
 
   broadcasts_refreshes_to :user

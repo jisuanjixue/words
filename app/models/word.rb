@@ -24,7 +24,7 @@
 #
 class Word < ApplicationRecord
   extend FriendlyId
-  belongs_to :book, touch: true, counter_cache: false
+  belongs_to :book, touch: true, counter_cache: true
   has_one :user, through: :book
   has_rich_text :definition
   has_rich_text :example_sentence
@@ -39,6 +39,19 @@ class Word < ApplicationRecord
   normalizes :name, with: -> { _1.squish }
 
   after_initialize :set_default_status, if: :new_record?
+
+  after_create do
+    user = User.find(book.user_id)
+    user.words_count = (user.words_count || 0) + 1
+    user.save!
+  end
+
+  after_destroy do
+    user = User.find(book.user_id)
+    user.words_count = (user.words_count || 0) - 1
+    user.save!
+  end
+
 
   private
 
