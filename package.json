@@ -6,10 +6,13 @@
     "@hotwired/turbo-rails": "^8.0.0-beta.1",
     "@rails/actiontext": "^7.1.2",
     "autoprefixer": "^10.4.16",
+    "date-fns": "^2.30.0",
     "esbuild": "^0.16.15",
     "flowbite": "^2.2.0",
     "postcss": "^8.4.32",
     "stimulus-animated-number": "^4.1.0",
+    "stimulus-checkbox-select-all": "^5.2.0",
+    "stimulus-timeago": "^4.1.0",
     "stimulus-use": "^0.52.1",
     "tailwindcss": "^3.3.6",
     "trix": "^2.0.8"

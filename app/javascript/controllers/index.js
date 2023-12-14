@@ -5,6 +5,9 @@
 import { Application } from "@hotwired/stimulus";
 import { IntersectionController } from 'stimulus-use';
 import AnimatedNumber from 'stimulus-animated-number'
+import CheckboxSelectAll from 'stimulus-checkbox-select-all'
+import Timeago from 'stimulus-timeago'
+import { zhCN } from 'date-fns/locale';
 
 // General Controllers
 // -------------------
@@ -38,6 +41,9 @@ controllers.forEach((controller) => {
 
 application.register('intersection', IntersectionController);
 application.register('animated-number', AnimatedNumber)
+application.register('checkbox-select-all', CheckboxSelectAll)
+application.register('timeago', Timeago)
+Timeago.defaultLocale = es;
 
 document.documentElement.setAttribute(
     'data-theme',

@@ -43,7 +43,7 @@ class WordsController < ApplicationController
         format.html { redirect_to book_path(@book), notice: 'word was delete..' }
     end
     else
-      redirect_to book_path(@book), alert: 'Word not found.'
+      redirect_to book_path(@book), alert: '未找到该单词.'
     end
   end
 
