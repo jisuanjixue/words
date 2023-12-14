@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20231213093301
+# Schema version: 20231214013323
 #
 # Table name: users
 #
@@ -19,6 +19,7 @@
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_username              (username) UNIQUE
 #
 require 'rails_helper'
 

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20231213093301
+# Schema version: 20231214013323
 #
 # Table name: users
 #
@@ -19,6 +19,7 @@
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_username              (username) UNIQUE
 #
 class User < ApplicationRecord
   has_many :books, dependent: :destroy
@@ -33,6 +34,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validate :validate_username
   attr_writer :login
+
+  after_initialize :calculate_words_count
 
   def login
     @login || username || email
@@ -49,6 +52,9 @@ class User < ApplicationRecord
     email.downcase!
   end
 
+  def calculate_words_count
+    self.words_count = words.to_a.size
+  end
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
