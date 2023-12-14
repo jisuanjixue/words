@@ -70,8 +70,8 @@ class Book < ApplicationRecord
 
   private
 
-  def update_user_works_count(value)
-    user = User.find(book.user_id)
+  def update_user_words_count(value)
+    user = User.find(user_id)
     user.words_count = (user.words_count || 0) + value
     user.save!
   end

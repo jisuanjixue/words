@@ -1,35 +1,33 @@
-
 <%= form_with(model: book) do |f| %>
   <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-    <div class="sm:col-span-2 mb-2 mt-2">
-      <%= f.label :名称, for: "名称", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %> 
+    <div class="mt-2 mb-2 sm:col-span-2">
+      <%= f.label :名称, for: "名称", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
       <%= f.text_field :name, type: "text", id: "name", placeholder: "单词本名",
         class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
           dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
     </div>
-    <div class="sm:col-span-2 mb-2 mt-2">
-      <%= f.label :封面, for: "封面", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %> 
+    <div class="mt-2 mb-2 sm:col-span-2">
+      <%= f.label :封面, for: "封面", class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
       <%= f.file_field :cover_url, type: "file", id: "cover_url", placeholder: "上传封面",
         class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
           dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
     </div>
-    <label class="relative inline-flex items-center cursor-pointer w-12">
-       <%= f.text_field :editable, type: "checkbox", id: "editable", class: "sr-only peer" %>
+    <label class="relative inline-flex items-center w-12 cursor-pointer">
+      <%= f.text_field :editable, type: "checkbox", id: "editable", class: "sr-only peer" %>
       <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
     </label>
   </div>
-   <div class="flex justify-center">
-      <button type="button" data-modal-hide="default-modal"
+  <div class="flex justify-center">
+    <button type="button"
       class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white 
       bg-default-700  bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700
       rounded-lg hover:bg-gradient-to-br mr-2 mb-2">
-        <%= link_to "取消", books_path %>
-      </button>
-      <button type="submit"  data-modal-hide="default-modal"
+      <%= link_to "取消", books_path %>
+    </button>
+    <button type="submit"
           class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 mr-2 mb-2"
       >
-            <%= f.submit "确定" %>
-      </button>
-    </div>
+      <%= f.submit "确定" %>
+    </button>
+  </div>
 <% end %>
-

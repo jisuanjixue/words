@@ -43,7 +43,7 @@ application.register('intersection', IntersectionController);
 application.register('animated-number', AnimatedNumber)
 application.register('checkbox-select-all', CheckboxSelectAll)
 application.register('timeago', Timeago)
-Timeago.defaultLocale = es;
+Timeago.defaultLocale = zhCN;
 
 document.documentElement.setAttribute(
     'data-theme',
