@@ -12,6 +12,25 @@
         </div>
       </div>
     <% end %>
+    <div class="flex flex-col pl-4 pr-4">
+      <div class="flex justify-between mb-1">
+        <span class="text-base font-medium text-blue-700 dark:text-white">
+          <div
+          data-controller="animated-number"
+          data-animated-number-lazy-value=""
+          data-animated-number-lazy-root-margin-value="30px"
+          data-animated-number-lazy-threshold-value="0.4"
+          data-animated-number-start-value="0"
+          data-animated-number-end-value="<%= book.words_count%>"
+          data-animated-number-duration-value="1000"
+          >
+            个单词
+          </div>
+        </span>
+        <span class="text-sm font-medium text-blue-700 dark:text-white"><%= book.mastered_percentage %> %</span>
+      </div>
+      <%= render ProgressBarComponent.new(width: "#{book.mastered_percentage}%") %>
+    </div>
     <div class="flex justify-end px-4 pt-4">
       <button  id="dropdownHoverButton_<%= book.id %>" data-dropdown-toggle="dropdownHover_<%= book.id %>" data-dropdown-trigger="hover" class="inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">

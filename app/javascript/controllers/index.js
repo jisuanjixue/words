@@ -4,6 +4,7 @@
 
 import { Application } from "@hotwired/stimulus";
 import { IntersectionController } from 'stimulus-use';
+import AnimatedNumber from 'stimulus-animated-number'
 
 // General Controllers
 // -------------------
@@ -36,6 +37,7 @@ controllers.forEach((controller) => {
 })
 
 application.register('intersection', IntersectionController);
+application.register('animated-number', AnimatedNumber)
 
 document.documentElement.setAttribute(
     'data-theme',
