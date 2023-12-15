@@ -1,0 +1,7 @@
+zh:
+  activerecord:
+    attributes:
+      word:
+        name: 名称
+        definition: 定义
+        submit: 查询

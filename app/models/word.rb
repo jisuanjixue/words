@@ -52,6 +52,10 @@ class Word < ApplicationRecord
     user.save!
   end
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name definition] # replace with your actual Word attributes
+  end
+
 
   private
 

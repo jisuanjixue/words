@@ -87,3 +87,5 @@ gem "friendly_id", "~> 5.5"
 
 
 gem "view_component", "~> 3.8"
+
+gem "ransack", "~> 4.1"

@@ -10,7 +10,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @word_all = @book.words.includes(:book).order(created_at: :desc)
+    @q = @book.words.includes(:book).ransack(params[:q])
+    @word_all = @q.result(distinct: true).order(created_at: :desc)
     @pagy, @words = pagy(@word_all)
     rescue Pagy::OverflowError
     redirect_to book_path(@book, page: 1)

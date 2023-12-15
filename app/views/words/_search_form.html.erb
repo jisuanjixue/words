@@ -1,0 +1,7 @@
+<%= search_form_for search, url: book_path(book) do |f| %>
+  <%= f.label :name %>
+  <%= f.search_field :name_cont %>
+  <%= f.label :definition %>
+  <%= f.search_field :definition_cont %>
+  <%= f.submit %>
+<% end %>
