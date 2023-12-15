@@ -53,7 +53,7 @@ class Word < ApplicationRecord
   end
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[name definition] # replace with your actual Word attributes
+    %w[name definition created_at status ] # replace with your actual Word attributes
   end
 
 

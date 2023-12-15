@@ -9,13 +9,13 @@
           </div>
         </th>
         <th scope="col" class="px-6 py-3">
-          名称
+          <%= sort_link(@q, :name, "名称") %>
         </th>
         <th scope="col" class="px-6 py-3">
           是否掌握
         </th>
         <th scope="col" class="px-6 py-3">
-          添加时间
+          <%= sort_link(@q, :created_at, "添加时间") %>
         </th>
         <th scope="col" class="px-6 py-3">
           操作
